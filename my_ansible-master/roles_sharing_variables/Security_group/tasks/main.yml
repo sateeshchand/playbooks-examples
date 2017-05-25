@@ -1,0 +1,23 @@
+# Creates n EC2 security group
+# Parameters:
+# name: Name of the security group
+# desc: Description of the security group
+# vpcId: VPC-ID of the VPC to which the security group is to be added
+# region: AWS Region of the group
+---
+- include_vars:
+    file: defaults/main.yml
+- ec2_group:
+    name: "{{ name }}"
+    description: "{{ security_group_desc | default('AWS-Ansible Security Group') }}"
+    vpc_id: "{{ vpc.vpc.id }}"
+    region: "{{ region | default('us-west-2') }}"
+    state: present
+    aws_access_key: "{{ ec2_access_key }}"
+    aws_secret_key: "{{ ec2_secret_key }}"
+        
+  register: securityGroup
+  
+- name: Print
+  debug:
+    msg: "{{ securityGroup }}"

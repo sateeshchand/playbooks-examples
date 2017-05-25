@@ -1,0 +1,6 @@
+---
+ec2_access_key: "AKIAJY7OZSPJDK3U2ZMA"
+ec2_secret_key: "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"
+
+region: "us-west-2"
+aws_keypair_name: "pk-APKAIBJTP7LKFUTAHB2Q.pem"

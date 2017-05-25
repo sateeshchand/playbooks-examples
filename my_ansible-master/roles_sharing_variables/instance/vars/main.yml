@@ -1,0 +1,5 @@
+---
+name: "aws_sh_ec2_i1"
+image: "ami-4836a428"
+instance_type: "t2.micro"
+

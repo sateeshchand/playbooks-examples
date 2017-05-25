@@ -1,0 +1,3 @@
+---
+subnet_cidr: "10.1.0.0/24"
+name: "aws_sh_sbn"

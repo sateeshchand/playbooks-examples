@@ -1,0 +1,28 @@
+# Creates a VPC on AWS
+# Parameters:
+# name: Name of the VPC
+# cidr: The CIDR of the VPC
+# region: The AWS region of the VPC
+# tags: The tags to be attached to the VPC, if any
+# tenancy: Default or dedicated tenancy
+---
+
+- include_vars:
+    file: defaults/main.yml
+- ec2_vpc_net:
+    name: "{{ name }}"
+    cidr_block: "{{ vpc_cidr }}"
+    region: "{{ region }}"
+    tags: "{{ tags | default(omit) }}"
+    tenancy: "{{ tenancy | default('default') }}"
+    state: present
+    dns_hostnames: yes
+    dns_support: yes
+    aws_access_key: "{{ ec2_access_key }}"
+    aws_secret_key: "{{ ec2_secret_key }}"   
+    
+  register: vpc
+  
+- name: Print
+  debug:
+    msg: "{{ vpc.vpc.id }}"  

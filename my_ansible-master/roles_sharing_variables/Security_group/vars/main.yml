@@ -1,0 +1,3 @@
+---
+name: "aws_sh_sec_group"
+security_group_desc: "security group for aws_sh"

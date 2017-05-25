@@ -1,0 +1,4 @@
+---
+name: "aws_sh_vpc1"
+vpc_cidr: "10.1.0.0/20"
+
